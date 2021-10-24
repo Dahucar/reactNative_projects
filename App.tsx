@@ -1,17 +1,13 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {
-  Text,
-  View,
-} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { MainStackNavigator } from './src/screens/MainStackNavigator';
 
 const App = () => {
   return (
-    <View >
-      <Text>
-        Hello
-      </Text>
-    </View>
+    <NavigationContainer>
+      <MainStackNavigator/>
+    </NavigationContainer>
   );
 };
 
