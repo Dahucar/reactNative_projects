@@ -1,14 +1,14 @@
 /* eslint-disable prettier/prettier */
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Text, View } from 'react-native';
-import { Movie } from '../../interfaces/movieDBInterface';
+import { RootStackParams } from '../MainStackNavigator';
 
-interface Props extends NativeStackScreenProps<any, any> {}
+interface Props extends NativeStackScreenProps<RootStackParams, 'DetailScreen'> {}
 
 export const DetailScreen = ({ route }: Props) => {
 
-  const movie = route.params as Movie;
+  const movie = route.params;
 
   return (
     <View>
