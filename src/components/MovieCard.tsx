@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
+import { useNavigation } from '@react-navigation/core';
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Movie } from '../interfaces/movieDBInterface';
 
 interface Props {
@@ -11,19 +12,29 @@ interface Props {
 
 const baseUrlImage: string = 'https://image.tmdb.org/t/p/w500';
 export const MovieCard = ({ movie, height = 420, width = 300 }: Props) => {
+  const navigator = useNavigation();
+
   const { image, imageContainer } = styless;
   const marginHorizontal: number = 4;
   const uri = `${baseUrlImage}${movie.poster_path}`;
+  const styles = { width, height, marginHorizontal };
+
+  const handleNavigate = () => {
+    navigator.navigate('DetailScreen' as never, movie as never);
+  };
 
   return (
-    <View style={{ width, height, marginHorizontal }}>
+    <TouchableOpacity
+      onPress={handleNavigate}
+      style={styles}
+    >
       <View style={imageContainer}>
         <Image
           source={{uri}}
           style={image}
         />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
