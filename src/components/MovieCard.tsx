@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
-import { Movies } from '../interfaces/movieDBInterface';
+import { Movie } from '../interfaces/movieDBInterface';
 
 interface Props {
-  movie: Movies,
+  movie: Movie,
   height?: number,
   width?: number,
 }
