@@ -2,6 +2,7 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { BASE_URL_IMAGE } from '../configurations';
 import { Movie } from '../interfaces/movieDBInterface';
 
 interface Props {
@@ -10,13 +11,12 @@ interface Props {
   width?: number,
 }
 
-const baseUrlImage: string = 'https://image.tmdb.org/t/p/w500';
 export const MovieCard = ({ movie, height = 420, width = 300 }: Props) => {
   const navigator = useNavigation();
 
   const { image, imageContainer } = styless;
   const marginHorizontal: number = 4;
-  const uri = `${baseUrlImage}${movie.poster_path}`;
+  const uri = `${BASE_URL_IMAGE}${movie.poster_path}`;
   const styles = { width, height, marginHorizontal };
 
   const handleNavigate = () => {
