@@ -1,10 +1,11 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, FlatList } from 'react-native';
 import currencyFormatter from 'currency-formatter';
 import { MovieFull } from '../interfaces/movieDBInterface';
 import { Cast } from '../interfaces/creditsInterface';
+import { CastItem } from './CastItem';
 
 interface Props {
   movie: MovieFull,
@@ -23,6 +24,16 @@ export const MovieDetail = ({ movie, cast }: Props) => {
       <Text style={{ fontWeight: 'bold', color: 'black', marginTop: 10 }}>Sinopsis.</Text>
       <Text style={{ fontStyle: 'italic' }}>{movie.overview}</Text>
 
+      <View style={{ marginTop: 10 }}>
+        <FlatList
+          horizontal
+          data={ cast }
+          keyExtractor={item => item.id.toString()}
+          renderItem={({ item }) => <CastItem actor={item} />}
+          showsHorizontalScrollIndicator={false}
+          style={{ marginTop: 10, height: 50 }}
+        />
+      </View>
     </>
   );
 };
