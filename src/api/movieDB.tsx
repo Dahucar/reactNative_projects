@@ -1,10 +1,11 @@
 /* eslint-disable prettier/prettier */
 import axios from 'axios';
+import { API_KEY_MOVIE_DB } from '../configurations';
 
 const movieDB = axios.create({
   baseURL: 'https://api.themoviedb.org/3/movie',
   params: {
-    api_key: 'bcf31cca7f84e10c60da29d4fa39a830',
+    api_key: API_KEY_MOVIE_DB,
     language: 'es-ES',
   },
 });
